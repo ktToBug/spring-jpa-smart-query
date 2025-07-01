@@ -1,0 +1,5 @@
+io/github/kttobug/query/util/LambdaUtils.class
+io/github/kttobug/query/LambdaQueryWrapper.class
+io/github/kttobug/query/QueryOperator.class
+io/github/kttobug/query/SerializableFunction.class
+io/github/kttobug/query/QueryCondition.class

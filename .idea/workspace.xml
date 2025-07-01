@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fd46727b-628a-4323-9b8a-9aac226fc857" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2zGcx6hvOgezv8h8Xif0IrgX6Jt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.SmartQueryExampleApplication.executor": "Debug",
+    "JUnit.SmartQueryExampleTestApplication.checkEnv.executor": "Debug",
+    "JUnit.SmartQueryExampleTestApplication.executor": "Debug",
+    "JUnit.SmartQueryQxampleApplication (1).executor": "Debug",
+    "JUnit.SmartQueryQxampleApplication.executor": "Debug",
+    "JUnit.SmartQueryQxampleApplication.testLambdaQuery (1).executor": "Debug",
+    "JUnit.SmartQueryQxampleApplication.testLambdaQuery.executor": "Debug",
+    "Maven.spring-jpa-smart-query [clean,package...].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/a1234/allCode/self/spring-jpa-smart-query/pom.xml",
+    "应用程序.SmartQueryExampleApplication.executor": "Debug",
+    "应用程序.SmartQueryQxampleApplication.executor": "Debug"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="io.github.kttobug.example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SmartQueryExampleTestApplication.checkEnv">
+    <configuration name="SmartQueryExampleApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplication" />
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartQueryExampleApplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplication" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartQueryExampleApplication.checkEnv" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplication" />
+      <option name="METHOD_NAME" value="checkEnv" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartQueryExampleTestApplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleTestApplication" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartQueryExampleTestApplication.checkEnv" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleTestApplication" />
+      <option name="METHOD_NAME" value="checkEnv" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartQueryQxampleApplication.testLambdaQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SmartQueryQxampleApplication" />
+      <option name="METHOD_NAME" value="testLambdaQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SmartQueryExampleTestApplication.checkEnv" />
+        <item itemvalue="JUnit.SmartQueryExampleTestApplication" />
+        <item itemvalue="JUnit.SmartQueryExampleApplication.checkEnv" />
+        <item itemvalue="JUnit.SmartQueryExampleApplication" />
+        <item itemvalue="应用程序.SmartQueryExampleApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="fd46727b-628a-4323-9b8a-9aac226fc857" name="更改" comment="" />
+      <created>1751361096778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751361096778</updated>
+    </task>
+    <servers />
+  </component>
+</project>
