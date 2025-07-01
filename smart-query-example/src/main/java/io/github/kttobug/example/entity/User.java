@@ -35,4 +35,13 @@ public class User {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    public User() {
+    }
+
+    public User(Long id, String username, Integer status) {
+        this.id = id;
+        this.username = username;
+        this.status = status;
+    }
 }
