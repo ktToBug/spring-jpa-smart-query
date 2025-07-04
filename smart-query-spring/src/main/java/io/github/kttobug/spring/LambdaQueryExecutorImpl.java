@@ -365,9 +365,9 @@ public class LambdaQueryExecutorImpl<T> extends SimpleJpaRepository<T, Long> imp
     }
 
     private Predicate buildPredicate(QueryCondition condition, CriteriaBuilder builder, Root<T> root) {
-        switch (condition.getOperator()) {
-            case EQ:
-                return builder.equal(root.get(condition.getField()), condition.getValue());
+                    switch (condition.getOperator()) {
+                        case EQ:
+                            return builder.equal(root.get(condition.getField()), condition.getValue());
             case NE:
                 return builder.notEqual(root.get(condition.getField()), condition.getValue());
             case GT:
@@ -378,8 +378,8 @@ public class LambdaQueryExecutorImpl<T> extends SimpleJpaRepository<T, Long> imp
                 return builder.lessThan(root.get(condition.getField()), (Comparable) condition.getValue());
             case LE:
                 return builder.lessThanOrEqualTo(root.get(condition.getField()), (Comparable) condition.getValue());
-            case LIKE:
-                return builder.like(root.get(condition.getField()), "%" + condition.getValue() + "%");
+                        case LIKE:
+                            return builder.like(root.get(condition.getField()), "%" + condition.getValue() + "%");
             case LEFT_LIKE:
                 return builder.like(root.get(condition.getField()), "%" + condition.getValue());
             case RIGHT_LIKE:

@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd46727b-628a-4323-9b8a-9aac226fc857" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/LambdaQueryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/LambdaQueryWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/QueryCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/QueryCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/QueryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/QueryOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/src/test/java/io/github/kttobug/example/SmartQueryExampleTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/test/java/io/github/kttobug/example/SmartQueryExampleTestApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/SmartQueryExampleApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/SmartQueryExampleApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/test-classes/io/github/kttobug/example/SmartQueryExampleApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-example/target/test-classes/io/github/kttobug/example/SmartQueryExampleTestApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
