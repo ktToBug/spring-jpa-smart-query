@@ -2,6 +2,7 @@ package io.github.kttobug.example;
 
 import io.github.kttobug.example.entity.User;
 import io.github.kttobug.example.repository.UserRepository;
+import io.github.kttobug.query.LambdaQueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,18 +20,14 @@ class SmartQueryExampleApplicationTest {
     private Environment env;
 
     @Test
-    void debugEnvVars() {
-        System.out.println("spring.datasource.url = " + env.getProperty("spring.datasource.url"));
-    }
-
-    @Test
     void testLambdaQuery() {
-        userRepository.save(new User(5L, "admin", 1));
-        List<User> admins = userRepository.findActiveAdmins();
+        List<User> list = this.userRepository.findAll(
+                LambdaQueryWrapper.of(User.class)
+                        .eq(User::getStatus, 1)
+                        .like(User::getUsername, "admin")
+        );
         System.out.println("111");
-        admins.forEach(System.out::println);
-        System.out.println(admins.size());
-        System.out.println("222");
-        // 你可以在这里添加断言
+        list.forEach(System.out::println);
+        System.out.println(list.size());
     }
 }

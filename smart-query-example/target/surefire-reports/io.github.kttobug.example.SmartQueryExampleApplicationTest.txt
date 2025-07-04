@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.github.kttobug.example.SmartQueryExampleApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.883 s -- in io.github.kttobug.example.SmartQueryExampleApplicationTest

@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd46727b-628a-4323-9b8a-9aac226fc857" name="更改" comment="" />
+    <list default="true" id="fd46727b-628a-4323-9b8a-9aac226fc857" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/LambdaQueryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/LambdaQueryWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/QueryOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-core/src/main/java/io/github/kttobug/query/QueryOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/main/java/io/github/kttobug/example/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/src/test/java/io/github/kttobug/example/SmartQueryExampleTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/src/test/java/io/github/kttobug/example/SmartQueryExampleTestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/SmartQueryExampleApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/SmartQueryExampleApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/classes/io/github/kttobug/example/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-example/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/test-classes/io/github/kttobug/example/SmartQueryExampleApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-example/target/test-classes/io/github/kttobug/example/SmartQueryExampleTestApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/smart-query-spring/target/classes/io/github/kttobug/spring/LambdaQueryExecutorImpl.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,37 +40,57 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ktToBug&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:ktToBug/spring-jpa-smart-query.git&quot;,
+    &quot;accountId&quot;: &quot;2537c272-8f7e-49ca-994d-98080b83650e&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2zGcx6hvOgezv8h8Xif0IrgX6Jt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.SmartQueryExampleApplication.executor": "Debug",
-    "JUnit.SmartQueryExampleTestApplication.checkEnv.executor": "Debug",
-    "JUnit.SmartQueryExampleTestApplication.executor": "Debug",
-    "JUnit.SmartQueryQxampleApplication (1).executor": "Debug",
-    "JUnit.SmartQueryQxampleApplication.executor": "Debug",
-    "JUnit.SmartQueryQxampleApplication.testLambdaQuery (1).executor": "Debug",
-    "JUnit.SmartQueryQxampleApplication.testLambdaQuery.executor": "Debug",
-    "Maven.spring-jpa-smart-query [clean,package...].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/a1234/allCode/self/spring-jpa-smart-query/pom.xml",
-    "应用程序.SmartQueryExampleApplication.executor": "Debug",
-    "应用程序.SmartQueryQxampleApplication.executor": "Debug"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.SmartQueryExampleApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryExampleApplicationTest.debugEnvVars.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryExampleApplicationTest.testLambdaQuery.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryExampleTestApplication.checkEnv.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryExampleTestApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryQxampleApplication (1).executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryQxampleApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryQxampleApplication.testLambdaQuery (1).executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SmartQueryQxampleApplication.testLambdaQuery.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.spring-jpa-smart-query [clean,package...].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a1234/allCode/self/spring-jpa-smart-query/pom.xml&quot;,
+    &quot;应用程序.SmartQueryExampleApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;应用程序.SmartQueryExampleTestApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;应用程序.SmartQueryQxampleApplication.executor&quot;: &quot;Debug&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="io.github.kttobug.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SmartQueryExampleTestApplication.checkEnv">
+  <component name="RunManager" selected="JUnit.SmartQueryExampleApplicationTest.testLambdaQuery">
     <configuration name="SmartQueryExampleApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplication" />
       <module name="smart-query-example" />
@@ -62,22 +104,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SmartQueryExampleApplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SmartQueryExampleTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleTestApplication" />
       <module name="smart-query-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.github.kttobug.example.entity.*" />
+          <option name="PATTERN" value="io.github.kttobug.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
-      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplication" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SmartQueryExampleApplication.checkEnv" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SmartQueryExampleApplicationTest.debugEnvVars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="smart-query-example" />
       <extension name="coverage">
         <pattern>
@@ -86,8 +126,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
-      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplication" />
-      <option name="METHOD_NAME" value="checkEnv" />
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplicationTest" />
+      <option name="METHOD_NAME" value="debugEnvVars" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartQueryExampleApplicationTest.testLambdaQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart-query-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.kttobug.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
+      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleApplicationTest" />
+      <option name="METHOD_NAME" value="testLambdaQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,22 +160,6 @@
       <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
       <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleTestApplication" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SmartQueryExampleTestApplication.checkEnv" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="smart-query-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.github.kttobug.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="io.github.kttobug.example" />
-      <option name="MAIN_CLASS_NAME" value="io.github.kttobug.example.SmartQueryExampleTestApplication" />
-      <option name="METHOD_NAME" value="checkEnv" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,10 +182,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SmartQueryExampleTestApplication.checkEnv" />
+        <item itemvalue="JUnit.SmartQueryExampleApplicationTest.testLambdaQuery" />
+        <item itemvalue="JUnit.SmartQueryExampleApplicationTest.debugEnvVars" />
+        <item itemvalue="应用程序.SmartQueryExampleTestApplication" />
         <item itemvalue="JUnit.SmartQueryExampleTestApplication" />
-        <item itemvalue="JUnit.SmartQueryExampleApplication.checkEnv" />
-        <item itemvalue="JUnit.SmartQueryExampleApplication" />
         <item itemvalue="应用程序.SmartQueryExampleApplication" />
       </list>
     </recent_temporary>
@@ -160,5 +200,16 @@
       <updated>1751361096778</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/smart-query-spring/src/main/java/io/github/kttobug/spring/LambdaQueryExecutorImpl.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
