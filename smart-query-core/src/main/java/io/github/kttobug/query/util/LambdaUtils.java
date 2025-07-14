@@ -21,14 +21,14 @@ public class LambdaUtils {
 
     private static String toPropertyName(String methodName) {
         if (methodName.startsWith("get")) {
-            return decapitalize(methodName.substring(3));
+            return decapitate(methodName.substring(3));
         } else if (methodName.startsWith("is")) {
-            return decapitalize(methodName.substring(2));
+            return decapitate(methodName.substring(2));
         }
         return methodName;
     }
 
-    private static String decapitalize(String str) {
+    private static String decapitate(String str) {
         return Character.toLowerCase(str.charAt(0)) + str.substring(1);
     }
 }

@@ -6,13 +6,14 @@
 
 ### 1. 注册 Sonatype 账号
 
-1. 访问 [Sonatype OSSRH](https://central.sonatype.com/register)
+1. 访问 [Sonatype Central Portal](https://central.sonatype.com/register)
 2. 注册账号并验证邮箱
 3. 创建命名空间（Namespace）申请：
    - 登录后访问 [Central Portal](https://central.sonatype.com/)
    - 点击"Add Namespace"
    - 输入您的命名空间：`io.github.kttobug`
-   - 选择验证方式（GitHub验证推荐）
+   - 选择 GitHub 验证方式
+   - 在您的 GitHub 仓库中创建一个临时的 public repository，名称为验证令牌
    - 等待审核通过（通常1-2个工作日）
 
 ### 2. 配置 GPG 密钥
@@ -71,102 +72,9 @@ gpg --keyserver keys.openpgp.org --send-keys YOUR_KEY_ID
 
 ## 🚀 发布流程
 
-### 1. 确认项目配置
+### 1. 发布前检查
 
-确保您的 `pom.xml` 包含以下必要信息：
-
-```xml
-<!-- 项目基本信息 -->
-<groupId>io.github.kttobug</groupId>
-<artifactId>spring-jpa-smart-query</artifactId>
-<version>1.0.0</version>
-<packaging>pom</packaging>
-
-<name>Spring JPA Smart Query</name>
-<description>A smart query library for Spring Data JPA with lambda expression support</description>
-<url>https://github.com/kttobug/spring-jpa-smart-query</url>
-
-<!-- 许可证信息 -->
-<licenses>
-  <license>
-    <name>MIT License</name>
-    <url>https://opensource.org/licenses/MIT</url>
-    <distribution>repo</distribution>
-  </license>
-</licenses>
-
-<!-- 开发者信息 -->
-<developers>
-  <developer>
-    <name>kttobug</name>
-    <email>kttobug@example.com</email>
-    <organization>kttobug</organization>
-    <organizationUrl>https://github.com/kttobug</organizationUrl>
-  </developer>
-</developers>
-
-<!-- SCM 信息 -->
-<scm>
-  <connection>scm:git:git://github.com/kttobug/spring-jpa-smart-query.git</connection>
-  <developerConnection>scm:git:ssh://github.com:kttobug/spring-jpa-smart-query.git</developerConnection>
-  <url>https://github.com/kttobug/spring-jpa-smart-query/tree/main</url>
-</scm>
-
-<!-- 发布仓库配置 -->
-<distributionManagement>
-  <snapshotRepository>
-    <id>central</id>
-    <name>Central Repository OSSRH</name>
-    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-  </snapshotRepository>
-  <repository>
-    <id>central</id>
-    <name>Central Repository OSSRH</name>
-    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-  </repository>
-</distributionManagement>
-```
-
-### 2. 添加发布插件
-
-在 `pom.xml` 的 `<build>` 部分添加：
-
-```xml
-<build>
-  <plugins>
-    <!-- Maven GPG Plugin -->
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-gpg-plugin</artifactId>
-      <version>3.1.0</version>
-      <executions>
-        <execution>
-          <id>sign-artifacts</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>sign</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-
-    <!-- Central Publishing Plugin -->
-    <plugin>
-      <groupId>org.sonatype.central</groupId>
-      <artifactId>central-publishing-maven-plugin</artifactId>
-      <version>0.4.0</version>
-      <extensions>true</extensions>
-      <configuration>
-        <publishingServerId>central</publishingServerId>
-        <tokenAuth>true</tokenAuth>
-        <autoPublish>true</autoPublish>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
-```
-
-### 3. 运行发布前检查
+运行以下命令确保项目状态良好：
 
 ```bash
 # 清理项目
@@ -181,18 +89,66 @@ mvn checkstyle:check
 # 生成 Javadoc
 mvn javadoc:javadoc
 
-# 打包项目
+# 打包项目（包括源码和 Javadoc）
 mvn package
 ```
 
-### 4. 执行发布
+### 2. 生成所有必需的构件
+
+发布到 Maven Central 需要以下构件：
 
 ```bash
-# 发布到 Central
-mvn clean deploy -Prelease
+# 生成所有必需的构件
+mvn clean package -P release
 
-# 或者使用新的 Central Publishing Plugin
-mvn clean deploy
+# 这将生成：
+# - JAR 文件
+# - 源码 JAR (-sources.jar)
+# - Javadoc JAR (-javadoc.jar)
+# - POM 文件
+# - GPG 签名文件 (.asc)
+```
+
+### 3. 执行发布
+
+#### 方式一：使用 Central Publishing Plugin（推荐）
+
+```bash
+# 发布到 Central（自动签名和发布）
+mvn clean deploy -P release
+```
+
+#### 方式二：传统方式（如果上述方式失败）
+
+```bash
+# 发布到 staging 仓库
+mvn clean deploy -P release -Dgpg.passphrase=YOUR_GPG_PASSPHRASE
+
+# 然后在 Sonatype Central Portal 中手动发布
+```
+
+### 4. 验证发布内容
+
+发布前，检查 `target` 目录中的构件：
+
+```bash
+# 查看 core 模块的构件
+ls -la smart-query-core/target/
+# 应该包含：
+# - smart-query-core-1.0.0.jar
+# - smart-query-core-1.0.0-sources.jar
+# - smart-query-core-1.0.0-javadoc.jar
+# - smart-query-core-1.0.0.pom
+# - 以及对应的 .asc 签名文件
+
+# 查看 spring 模块的构件
+ls -la smart-query-spring/target/
+# 应该包含：
+# - smart-query-spring-1.0.0.jar
+# - smart-query-spring-1.0.0-sources.jar
+# - smart-query-spring-1.0.0-javadoc.jar
+# - smart-query-spring-1.0.0.pom
+# - 以及对应的 .asc 签名文件
 ```
 
 ## 📦 发布后验证
@@ -210,19 +166,60 @@ mvn clean deploy
 - [Maven Central Search](https://search.maven.org/)
 - [MVN Repository](https://mvnrepository.com/)
 
-搜索：`io.github.kttobug:smart-query-spring`
+搜索：`io.github.kttobug`
 
 ### 3. 测试依赖
 
 创建一个新的 Maven 项目，添加您的依赖：
 
 ```xml
-<dependency>
-    <groupId>io.github.kttobug</groupId>
-    <artifactId>smart-query-spring</artifactId>
-    <version>1.0.0</version>
-</dependency>
+<dependencies>
+    <!-- 核心模块 -->
+    <dependency>
+        <groupId>io.github.kttobug</groupId>
+        <artifactId>smart-query-core</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    
+    <!-- Spring 集成模块 -->
+    <dependency>
+        <groupId>io.github.kttobug</groupId>
+        <artifactId>smart-query-spring</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
 ```
+
+## 🔧 常见问题和解决方案
+
+### 1. GPG 签名失败
+
+```bash
+# 检查 GPG 密钥是否存在
+gpg --list-secret-keys
+
+# 如果密钥不存在，重新生成
+gpg --full-generate-key
+
+# 确保 GPG 密码正确
+gpg --armor --detach-sign --batch --yes --passphrase YOUR_PASSPHRASE test.txt
+```
+
+### 2. 构件验证失败
+
+确保以下文件都存在：
+- JAR 文件
+- 源码 JAR
+- Javadoc JAR
+- POM 文件
+- 所有文件的 GPG 签名
+
+### 3. 依赖问题
+
+如果某些依赖无法解析，请检查：
+- 依赖的版本是否正确
+- 是否有循环依赖
+- 是否缺少必要的仓库配置
 
 ## 🔄 版本管理
 
@@ -240,122 +237,87 @@ mvn clean deploy
 # 1. 更新版本号
 mvn versions:set -DnewVersion=1.0.1
 
-# 2. 提交更改
+# 2. 确认版本更新
+mvn versions:commit
+
+# 3. 提交更改
 git add .
 git commit -m "Release version 1.0.1"
 git tag -a v1.0.1 -m "Release version 1.0.1"
 
-# 3. 推送到 GitHub
+# 4. 推送到 GitHub
 git push origin main
 git push origin v1.0.1
 
-# 4. 发布到 Maven Central
-mvn clean deploy -Prelease
+# 5. 发布到 Maven Central
+mvn clean deploy -P release
 ```
 
-## 🤖 自动化发布
+## 📝 发布检查清单
 
-### GitHub Actions 配置
+在发布前，请确保：
 
-创建 `.github/workflows/release.yml`：
-
-```yaml
-name: Release to Maven Central
-
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        server-id: central
-        server-username: MAVEN_USERNAME
-        server-password: MAVEN_PASSWORD
-        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg-passphrase: MAVEN_GPG_PASSPHRASE
-    
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
-    
-    - name: Run tests
-      run: mvn clean test
-    
-    - name: Deploy to Maven Central
-      run: mvn clean deploy -Prelease
-      env:
-        MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-        MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-        MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-```
-
-### GitHub Secrets 配置
-
-在 GitHub 仓库的 Settings → Secrets 中添加：
-
-- `OSSRH_USERNAME`：Sonatype 用户名
-- `OSSRH_PASSWORD`：Sonatype 密码
-- `GPG_PRIVATE_KEY`：GPG 私钥
-- `GPG_PASSPHRASE`：GPG 密码
-
-## 🛠️ 故障排除
-
-### 常见问题
-
-1. **GPG 签名失败**
-   ```bash
-   # 检查 GPG 配置
-   gpg --list-keys
-   
-   # 重新导出公钥
-   gpg --keyserver keyserver.ubuntu.com --send-keys YOUR_KEY_ID
-   ```
-
-2. **401 未授权错误**
-   - 检查 settings.xml 中的用户名密码
-   - 确认 Sonatype 账号已激活
-
-3. **命名空间验证失败**
-   - 确认 GitHub 仓库所有者与申请的命名空间匹配
-   - 检查命名空间审核状态
-
-4. **构件验证失败**
-   - 确保所有必需的 metadata 都已包含
-   - 检查 POM 文件的完整性
-
-### 检查列表
-
-发布前请确认：
-
-- [ ] 所有测试通过
+- [ ] 所有测试都通过
 - [ ] 代码质量检查通过
 - [ ] 版本号已更新
-- [ ] 文档已更新
-- [ ] GPG 密钥配置正确
-- [ ] Maven settings.xml 配置正确
-- [ ] POM 文件信息完整
+- [ ] GPG 密钥已配置
+- [ ] Maven settings.xml 已配置
+- [ ] 项目信息完整（名称、描述、许可证等）
+- [ ] 源码和 Javadoc 能够正常生成
+- [ ] 依赖关系正确
+- [ ] Git 标签已创建
 
-## 📚 参考资源
+## 🎯 自动化发布脚本
 
-- [Maven Central 官方文档](https://central.sonatype.org/publish/publish-guide/)
-- [GPG 签名指南](https://central.sonatype.org/publish/requirements/gpg/)
-- [语义化版本控制](https://semver.org/)
-- [GitHub Actions 文档](https://docs.github.com/en/actions)
+以下脚本可以自动化发布过程：
 
----
+```bash
+#!/bin/bash
+# release.sh - 自动发布脚本
 
-**恭喜！** 您已经成功将项目发布到 Maven Central。现在全世界的开发者都可以使用您的库了！ 🎉 
+set -e
+
+# 检查版本号参数
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <version>"
+    echo "Example: $0 1.0.1"
+    exit 1
+fi
+
+VERSION=$1
+
+echo "🚀 开始发布版本 $VERSION"
+
+# 1. 清理并测试
+echo "📋 清理并运行测试..."
+mvn clean test
+
+# 2. 更新版本号
+echo "🔄 更新版本号到 $VERSION..."
+mvn versions:set -DnewVersion=$VERSION
+mvn versions:commit
+
+# 3. 提交更改
+echo "📝 提交版本更改..."
+git add .
+git commit -m "Release version $VERSION"
+git tag -a v$VERSION -m "Release version $VERSION"
+
+# 4. 发布到 Maven Central
+echo "📦 发布到 Maven Central..."
+mvn clean deploy -P release
+
+# 5. 推送到 GitHub
+echo "🔄 推送到 GitHub..."
+git push origin main
+git push origin v$VERSION
+
+echo "✅ 发布完成！"
+echo "🔗 查看发布状态：https://central.sonatype.com/"
+```
+
+使用方法：
+```bash
+chmod +x release.sh
+./release.sh 1.0.1
+``` 

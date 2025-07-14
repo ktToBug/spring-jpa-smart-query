@@ -31,6 +31,9 @@
         <!-- Code Quality -->
         <checkstyle.version>3.3.0</checkstyle.version>
         <spotbugs.version>4.7.3</spotbugs.version>
+        
+        <!-- GPG Plugin -->
+        <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
     </properties>
     
     <modules>
@@ -134,8 +137,51 @@
                         </execution>
                     </executions>
                 </plugin>
+                
+                <!-- Maven GPG Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven-gpg-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                
+                <!-- Central Publishing Plugin -->
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.4.0</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <publishingServerId>central</publishingServerId>
+                        <tokenAuth>true</tokenAuth>
+                        <autoPublish>true</autoPublish>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
+        
+        <plugins>
+            <!-- 确保所有模块都生成源码包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            
+            <!-- 确保所有模块都生成 Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
     
     <profiles>
@@ -143,19 +189,16 @@
             <id>release</id>
             <build>
                 <plugins>
+                    <!-- GPG 签名插件 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
+                    </plugin>
+                    
+                    <!-- Central Publishing Plugin -->
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
@@ -165,11 +208,13 @@
     <!-- Maven Central 发布配置 -->
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
+            <id>central</id>
+            <name>Central Repository OSSRH</name>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
+            <id>central</id>
+            <name>Central Repository OSSRH</name>
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
@@ -182,6 +227,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    
     <developers>
         <developer>
             <name>kttobug</name>
@@ -190,6 +236,7 @@
             <organizationUrl>https://github.com/kttobug</organizationUrl>
         </developer>
     </developers>
+    
     <scm>
         <connection>scm:git:git://github.com/kttobug/spring-jpa-smart-query.git</connection>
         <developerConnection>scm:git:ssh://github.com:kttobug/spring-jpa-smart-query.git</developerConnection>

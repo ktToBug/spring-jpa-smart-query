@@ -35,11 +35,11 @@ public class QueryPerformanceMonitor {
             
             if (executionTime > maxExecutionTime) {
                 maxExecutionTime = executionTime;
-            }
-            
+        }
+        
             if (executionTime < minExecutionTime) {
                 minExecutionTime = executionTime;
-            }
+    }
         }
         
         public double getAverageExecutionTime() {
@@ -61,11 +61,11 @@ public class QueryPerformanceMonitor {
         
         public long getMinExecutionTime() {
             return minExecutionTime == Long.MAX_VALUE ? 0 : minExecutionTime;
-        }
+    }
     }
     
     private final ConcurrentHashMap<String, QueryStats> queryStatsMap = new ConcurrentHashMap<>();
-    
+
     /**
      * 记录查询开始时间
      * 
@@ -75,7 +75,7 @@ public class QueryPerformanceMonitor {
     public long startQuery(String queryKey) {
         return System.currentTimeMillis();
     }
-    
+
     /**
      * 记录查询结束时间并计算执行时间
      * 
@@ -86,7 +86,7 @@ public class QueryPerformanceMonitor {
         long executionTime = System.currentTimeMillis() - startTime;
         recordQueryExecution(queryKey, executionTime);
     }
-    
+
     /**
      * 记录查询执行信息
      * 
@@ -102,7 +102,7 @@ public class QueryPerformanceMonitor {
             logger.warn("Slow query detected: {} took {}ms", queryKey, executionTime);
         }
     }
-    
+
     /**
      * 获取查询统计信息
      * 
@@ -114,7 +114,7 @@ public class QueryPerformanceMonitor {
         if (stats == null) {
             return new QueryStatistics(queryKey, 0, 0, 0, 0, 0);
         }
-        
+
         return new QueryStatistics(
             queryKey,
             stats.getExecutionCount(),
@@ -124,7 +124,7 @@ public class QueryPerformanceMonitor {
             stats.getMinExecutionTime()
         );
     }
-    
+
     /**
      * 获取所有查询统计信息
      * 
@@ -148,18 +148,18 @@ public class QueryPerformanceMonitor {
         }
         
         return result;
-    }
-    
-    /**
+        }
+
+        /**
      * 清空所有统计信息
-     */
+         */
     public void clearStatistics() {
         queryStatsMap.clear();
-    }
-    
-    /**
+        }
+
+        /**
      * 打印性能报告
-     */
+         */
     public void printPerformanceReport() {
         logger.info("=== Query Performance Report ===");
         
@@ -175,11 +175,11 @@ public class QueryPerformanceMonitor {
             logger.info("  Min Time: {}ms", stats.getMinExecutionTime());
             logger.info("  ---");
         }
-    }
-    
-    /**
+        }
+
+        /**
      * 查询统计信息数据类
-     */
+         */
     public static class QueryStatistics {
         private final String queryKey;
         private final long executionCount;
@@ -201,11 +201,11 @@ public class QueryPerformanceMonitor {
         public String getQueryKey() {
             return queryKey;
         }
-        
+
         public long getExecutionCount() {
             return executionCount;
         }
-        
+
         public long getTotalExecutionTime() {
             return totalExecutionTime;
         }
