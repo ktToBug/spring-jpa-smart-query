@@ -20,6 +20,8 @@
 
 ## 📦 快速开始
 
+> 💡 **5分钟快速上手**：查看 [快速入门指南](docs/QUICKSTART.md)
+
 ### 1️⃣ 引入依赖
 
 ```xml
@@ -36,8 +38,12 @@
 
 ```java
 @SpringBootApplication
-@EnableSmartJpa // 包含 @EnableJpaRepositories + 自定义配置
-public class Application { }
+@EnableSmartJpa // 一键启用所有智能查询功能
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
 ```
 
 ---
@@ -239,6 +245,8 @@ mvn install
 # 发布到 Maven Central（需要配置）
 mvn deploy -Prelease
 ```
+
+> 📖 **完整发布指南**：查看 [Maven 发布指南](docs/MAVEN_PUBLISH_GUIDE.md)
 
 ---
 

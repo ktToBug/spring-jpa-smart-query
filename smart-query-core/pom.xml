@@ -12,7 +12,7 @@
     </parent>
     
     <artifactId>smart-query-core</artifactId>
-    <name>Smart Query Core</name>
+    <name>smart-query-core</name>
     <description>Core query building functionality for Spring Data JPA</description>
     
     <dependencies>

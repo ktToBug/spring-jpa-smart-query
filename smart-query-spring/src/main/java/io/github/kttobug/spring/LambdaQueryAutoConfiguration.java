@@ -1,18 +1,25 @@
 package io.github.kttobug.spring;
 
-import io.github.kttobug.spring.aspect.LambdaQueryExecutorAspect;
+import io.github.kttobug.query.QueryPerformanceMonitor;
 import jakarta.persistence.EntityManager;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @AutoConfiguration
 @ConditionalOnClass(EntityManager.class)
-// @EnableJpaRepositories(repositoryFactoryBeanClass = LambdaQueryRepositoryFactoryBean.class)
 public class LambdaQueryAutoConfiguration {
+    
     @Bean
-    public LambdaQueryExecutorAspect lambdaQueryExecutorAspect() {
-        return new LambdaQueryExecutorAspect();
+    @ConditionalOnMissingBean
+    public QueryPerformanceMonitor queryPerformanceMonitor() {
+        return new QueryPerformanceMonitor();
+    }
+    
+    @Bean
+    @ConditionalOnMissingBean
+    public SmartQueryService smartQueryService() {
+        return new SmartQueryService();
     }
 }

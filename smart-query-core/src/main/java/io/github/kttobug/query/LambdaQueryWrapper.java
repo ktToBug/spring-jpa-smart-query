@@ -283,10 +283,8 @@ public class LambdaQueryWrapper<T> {
      * @return 当前查询包装器实例，支持链式调用
      */
     public <R> LambdaQueryWrapper<T> isNull(SerializableFunction<T, R> field, Iterable<R> values) {
-        if (values != null && values.iterator().hasNext()) {
-            String fieldName = LambdaUtils.resolveFieldName(field);
-            conditions.add(new QueryCondition(fieldName, QueryOperator.IS_NULL, values));
-        }
+        String fieldName = LambdaUtils.resolveFieldName(field);
+        conditions.add(new QueryCondition(fieldName, QueryOperator.IS_NULL, values));
         return this;
     }
 
@@ -301,10 +299,8 @@ public class LambdaQueryWrapper<T> {
      * @return 当前查询包装器实例，支持链式调用
      */
     public <R> LambdaQueryWrapper<T> isNotNull(SerializableFunction<T, R> field, Iterable<R> values) {
-        if (values != null && values.iterator().hasNext()) {
-            String fieldName = LambdaUtils.resolveFieldName(field);
-            conditions.add(new QueryCondition(fieldName, QueryOperator.IS_NOT_NULL, values));
-        }
+        String fieldName = LambdaUtils.resolveFieldName(field);
+        conditions.add(new QueryCondition(fieldName, QueryOperator.IS_NOT_NULL, values));
         return this;
     }
 
@@ -472,7 +468,10 @@ public class LambdaQueryWrapper<T> {
      * @return 当前查询包装器实例，支持链式调用
      */
     public LambdaQueryWrapper<T> apply(String customCondition, Object... parameters) {
-        conditions.add(new QueryCondition("", QueryOperator.APPLY, new Object[]{customCondition, parameters}));
+        Object[] applyData = new Object[parameters.length + 1];
+        applyData[0] = customCondition;
+        System.arraycopy(parameters, 0, applyData, 1, parameters.length);
+        conditions.add(new QueryCondition("", QueryOperator.APPLY, applyData));
         return this;
     }
 

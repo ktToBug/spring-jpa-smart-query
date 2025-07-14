@@ -1,8 +1,8 @@
 package io.github.kttobug.example;
 
 import io.github.kttobug.example.entity.User;
-import io.github.kttobug.example.repository.UserRepository;
 import io.github.kttobug.query.LambdaQueryWrapper;
+import io.github.kttobug.spring.SmartQueryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,20 +14,27 @@ import java.util.List;
 class SmartQueryExampleApplicationTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private SmartQueryService smartQueryService;
 
     @Autowired
     private Environment env;
 
     @Test
     void testLambdaQuery() {
-        List<User> list = this.userRepository.findAll(
-                LambdaQueryWrapper.of(User.class)
-                        .eq(User::getStatus, 1)
-                        .like(User::getUsername, "admin")
-        );
-        System.out.println("111");
+        // 创建查询包装器
+        LambdaQueryWrapper<User> queryWrapper = LambdaQueryWrapper.of(User.class)
+                .eq(User::getStatus, 1)
+                .like(User::getUsername, "admin");
+        
+        // 使用智能查询服务执行查询
+        List<User> list = smartQueryService.findAll(queryWrapper);
+        
+        System.out.println("Lambda Query Test Result:");
         list.forEach(System.out::println);
-        System.out.println(list.size());
+        System.out.println("Total count: " + list.size());
+        
+        // 测试计数功能
+        long count = smartQueryService.count(queryWrapper);
+        System.out.println("Count query result: " + count);
     }
 }

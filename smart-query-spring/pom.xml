@@ -10,7 +10,7 @@
     <version>1.0.0</version>
   </parent>
   <artifactId>smart-query-spring</artifactId>
-  <name>Smart Query Spring</name>
+  <name>smart-query-spring</name>
   <description>Spring integration for Smart Query</description>
   <dependencies>
     <dependency>
