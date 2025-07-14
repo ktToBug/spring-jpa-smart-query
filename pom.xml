@@ -175,9 +175,6 @@
     </distributionManagement>
 
     <!-- 项目信息 -->
-    <name>Spring JPA Smart Query</name>
-    <description>A smart query library for Spring Data JPA with lambda expression support</description>
-    <url>https://github.com/kttobug/spring-jpa-smart-query</url>
     <licenses>
         <license>
             <name>MIT License</name>
