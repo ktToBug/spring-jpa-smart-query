@@ -1,9 +1,8 @@
 #!/bin/bash
-# setup-maven.sh - 设置 Maven 配置脚本
+# setup.sh - 简单的配置脚本
 
-set -e
-
-echo "🛠️  设置 Maven 发布配置"
+echo "🔧 Spring JPA Smart Query 配置助手"
+echo "=================================="
 
 # 检查 Maven 是否安装
 if ! command -v mvn &> /dev/null; then
@@ -20,10 +19,10 @@ if [ -f ~/.m2/settings.xml ]; then
     cp ~/.m2/settings.xml ~/.m2/settings.xml.backup.$(date +%Y%m%d_%H%M%S)
 fi
 
-# 提示用户输入配置信息
-echo "📝 请输入以下配置信息："
+echo "📝 请输入配置信息（密码输入时不会显示）："
 echo ""
 
+# 使用 https://central.sonatype.com 生成的 用户名 / 密码
 read -p "Sonatype 用户名: " SONATYPE_USERNAME
 read -s -p "Sonatype 密码: " SONATYPE_PASSWORD
 echo ""
@@ -40,27 +39,26 @@ cat > ~/.m2/settings.xml << EOF
           http://maven.apache.org/xsd/settings-1.0.0.xsd">
   
   <servers>
-    <!-- Sonatype Central Portal 服务器配置 -->
     <server>
-      <id>central</id>
+      <id>ossrh</id>
       <username>${SONATYPE_USERNAME}</username>
       <password>${SONATYPE_PASSWORD}</password>
+    </server>
+    <server>
+      <id>gpg.passphrase</id>
+      <passphrase>${GPG_PASSPHRASE}</passphrase>
     </server>
   </servers>
   
   <profiles>
-    <!-- 发布配置 -->
     <profile>
       <id>release</id>
       <properties>
-        <!-- GPG 签名配置 -->
         <gpg.executable>gpg</gpg.executable>
-        <gpg.passphrase>${GPG_PASSPHRASE}</gpg.passphrase>
       </properties>
     </profile>
   </profiles>
   
-  <!-- 激活 release profile -->
   <activeProfiles>
     <activeProfile>release</activeProfile>
   </activeProfiles>
@@ -71,17 +69,12 @@ EOF
 # 设置文件权限
 chmod 600 ~/.m2/settings.xml
 
-echo "✅ Maven 配置完成！"
+echo "✅ 配置完成！"
 echo ""
 echo "📋 配置文件位置: ~/.m2/settings.xml"
 echo "🔒 已设置适当的文件权限 (600)"
 echo ""
-echo "🔑 接下来请确保您的 GPG 密钥已正确配置："
-echo "   1. 检查 GPG 密钥: gpg --list-secret-keys"
-echo "   2. 如果没有密钥，生成新的: gpg --full-generate-key"
-echo "   3. 导出公钥到密钥服务器:"
-echo "      gpg --keyserver keyserver.ubuntu.com --send-keys YOUR_KEY_ID"
-echo "      gpg --keyserver pgp.mit.edu --send-keys YOUR_KEY_ID"
-echo "      gpg --keyserver keys.openpgp.org --send-keys YOUR_KEY_ID"
+echo "🚀 现在您可以使用以下命令发布："
+echo "   mvn clean deploy -P release -DskipTests"
 echo ""
-echo "🚀 配置完成后，您可以使用 ./release.sh 1.0.0 来发布项目" 
+echo "�� 详细说明请查看：发布指南.md" 

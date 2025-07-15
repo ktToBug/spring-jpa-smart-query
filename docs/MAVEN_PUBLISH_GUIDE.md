@@ -2,6 +2,17 @@
 
 本指南将帮助您将 Spring JPA Smart Query 发布到 Maven Central，供其他开发者使用。
 
+### 构建 jar → 用 GPG 签名 → 配置上传目标（Sonatype） → 上传 → 手动发布
+> 注册 Sonatype 账号
+> 本地 GPG 生成密钥对
+> GitHub 添加 GPG 公钥（可选，但推荐）
+> 在 settings.xml 和 pom.xml 中配置 GPG 与 Sonatype 信息
+> 执行命令（或脚本）发布到 Maven Central
+> 
+> mvn clean deploy -s ~/.m2/settings.xml \
+-P release \
+-Dgpg.passphrase=yybdkt37526SWY
+
 ## 📋 准备工作
 
 ### 1. 注册 Sonatype 账号
