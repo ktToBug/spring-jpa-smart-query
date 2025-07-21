@@ -6,11 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.kttobug</groupId>
-    <artifactId>spring-jpa-smart-query</artifactId>
+    <artifactId>spring-jpa-smart-query-parent</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>spring-jpa-smart-query</name>
+    <name>spring-jpa-smart-query-parent</name>
     <description>A smart query library for Spring Data JPA with lambda expression support</description>
     <url>https://github.com/kttobug/spring-jpa-smart-query</url>
 
@@ -43,6 +43,7 @@
     <modules>
         <module>smart-query-core</module>
         <module>smart-query-spring</module>
+        <module>spring-jpa-smart-query</module>
     </modules>
 
     <dependencyManagement>

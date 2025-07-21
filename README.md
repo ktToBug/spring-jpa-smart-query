@@ -20,19 +20,15 @@
 
 ## 📦 快速开始
 
-> 💡 **5分钟快速上手**：查看 [快速入门指南](docs/QUICKSTART.md)
-
 ### 1️⃣ 引入依赖
 
 ```xml
 <dependency>
     <groupId>io.github.kttobug</groupId>
-    <artifactId>smart-query-spring</artifactId>
+    <artifactId>spring-jpa-smart-query</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
-
----
 
 ### 2️⃣ 启用功能
 
@@ -46,7 +42,61 @@ public class Application {
 }
 ```
 
----
+### 3️⃣ 创建实体类
+
+```java
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String name;
+    private Integer age;
+    private String email;
+    private String department;
+    
+    // getter/setter 方法...
+}
+```
+
+### 4️⃣ 扩展仓库接口
+
+```java
+public interface UserRepository extends JpaRepository<User, Long>, LambdaQueryExecutor<User> {
+    // 继承 JpaRepository 的所有方法
+    // 继承 LambdaQueryExecutor 的智能查询方法
+}
+```
+
+### 5️⃣ 使用智能查询
+
+```java
+@Service
+public class UserService {
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    public List<User> findActiveUsers() {
+        LambdaQueryWrapper<User> wrapper = LambdaQueryWrapper.of(User.class)
+            .eq(User::getStatus, "ACTIVE")
+            .gt(User::getAge, 18)
+            .orderByDesc(User::getCreateTime);
+            
+        return userRepository.list(wrapper);
+    }
+    
+    public Page<User> findUsersByDepartment(String department, Pageable pageable) {
+        LambdaQueryWrapper<User> wrapper = LambdaQueryWrapper.of(User.class)
+            .eq(User::getDepartment, department)
+            .like(User::getName, "张");
+            
+        return userRepository.findAll(wrapper, pageable);
+    }
+}
+```
 
 ## 🔧 使用示例
 
@@ -191,6 +241,9 @@ spring-jpa-smart-query/
 │   ├── LambdaQueryExecutor    # 查询执行器接口
 │   ├── LambdaQueryExecutorImpl # 查询执行器实现
 │   └── LambdaQueryAutoConfiguration # 自动配置
+├── spring-jpa-smart-query/    # Spring Boot Starter 模块
+│   ├── 自动配置和依赖管理
+│   └── 配置属性支持
 └── smart-query-example/       # 使用示例
 ```
 
@@ -247,6 +300,7 @@ mvn deploy -Prelease
 ```
 
 > 📖 **完整发布指南**：查看 [Maven 发布指南](docs/MAVEN_PUBLISH_GUIDE.md)
+> 📖 **API 文档**：查看 [API 文档](docs/API.md)
 
 ---
 

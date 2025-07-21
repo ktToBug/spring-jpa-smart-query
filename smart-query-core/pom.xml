@@ -7,7 +7,7 @@
     
     <parent>
         <groupId>io.github.kttobug</groupId>
-        <artifactId>spring-jpa-smart-query</artifactId>
+        <artifactId>spring-jpa-smart-query-parent</artifactId>
         <version>1.0.0</version>
     </parent>
     

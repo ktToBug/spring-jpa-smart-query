@@ -192,10 +192,10 @@ ls -la smart-query-spring/target/
         <version>1.0.0</version>
     </dependency>
     
-    <!-- Spring 集成模块 -->
+    <!-- Spring Boot Starter 模块 -->
     <dependency>
         <groupId>io.github.kttobug</groupId>
-        <artifactId>smart-query-spring</artifactId>
+        <artifactId>spring-jpa-smart-query</artifactId>
         <version>1.0.0</version>
     </dependency>
 </dependencies>
